@@ -49,7 +49,7 @@ LOGGING['loggers']['django_auth_ldap'] = {
 *General*
 - The relevant playbook
 - The stdout from the job run at a higher verbosity (-vvvv) 
-- The version of Ansible (ansible --version)
+- The version of Ansible (`ansible --version`)
 - Output of `ansible-config dump --only-changed`
 
 *Windows:* In addition to the items requested previously, you may also need
@@ -73,9 +73,9 @@ LOGGING['loggers']['django_auth_ldap'] = {
 *UI Slowness*
 - The api output of any particular page that is slow to load. Example: https://tower.example.com/api/v2/job_events/ 
 - SQL profile data while replicating the slowness:
-   - su - awx
+   - `su - awx`
    - `awx-manage profile_sql --threshold 2 --minutes 5`
-   - Attach files from /var/log/tower/profile
+   - Attach files from `/var/log/tower/profile`
 
 **Isolated Nodes:**
 - The management_playbooks.log from `/var/log/tower`
