@@ -60,28 +60,28 @@ LOGGING['loggers']['django_auth_ldap'] = {
 - Sosreport from each cluster node(s)
 - In addition to a sosreport, the following may be useful for troubleshooting the individual components:
 *Postgres*
-If an external database, a tarball of /var/log/pgsql/{VERSION}/data or /var/lib/pgsql/{VERSION}/data/pg_log
-DB specifications including IOPS, RAM, CPU
-RabbitMQ
-The output of https://tower.example.com/api/v2/ping/ 
-UI Slowness
-The api output of any particular page that is slow to load. Example: https://tower.example.com/api/v2/job_events/ 
-SQL profile data while replicating the slowness:
-su - awx
-awx-manage profile_sql --threshold 2 --minutes 5
-Attach files from /var/log/tower/profile
+- If an external database, a tarball of `/var/log/pgsql/{VERSION}/data` or `/var/lib/pgsql/{VERSION}/data/pg_log`
+- DB specifications including IOPS, RAM, CPU
+*RabbitMQ*
+- The output of https://tower.example.com/api/v2/ping/ 
+*UI Slowness*
+- The api output of any particular page that is slow to load. Example: https://tower.example.com/api/v2/job_events/ 
+- SQL profile data while replicating the slowness:
+   - su - awx
+   - `awx-manage profile_sql --threshold 2 --minutes 5`
+   - Attach files from /var/log/tower/profile
 
-Isolated Nodes:
-The management_playbooks.log from /var/log/tower
-The output of awx-manage test_isolated_connection --hostname <ISOLATED_NODE_HOSTNAME> to verify connectivity between the Tower node(s) and the isolated node. 
+**Isolated Nodes:**
+- The management_playbooks.log from `/var/log/tower`
+- The output of `awx-manage test_isolated_connection --hostname <ISOLATED_NODE_HOSTNAME>` to verify connectivity between the Tower node(s) and the isolated node. 
 
-RBAC
+**RBAC**
 Most RBAC questions that require troubleshooting are due to users not being able to do something that they should be able to or vice versa.  Each object in Tower that a user can get access to will have an associated endpoint.  The following are examples of what to request for with permissions issues with a workflow template, but similar endpoints will be available for projects, inventories, job templates, etc.:
 
 https://tower.example.com/api/v2/workflow_job_templates/N/object_roles/ where N is the ID of the workflow
 https://tower.example.com/api/v2/workflow_job_templates/N/access_list/  
 https://tower.example.com/api/v2/users/N/roles/  where N is the ID of the affected user
 
-General Ansible Tower Configuration
+**General Ansible Tower Configuration**
 In order to gather all configuration data about an Ansible Tower instance, please request the output of https://tower.example.com/api/v2/settings/all This is especially useful to confirm the presence of load balancer or proxy configuration. 
 
