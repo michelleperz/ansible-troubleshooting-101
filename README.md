@@ -54,7 +54,7 @@ LOGGING['loggers']['django_auth_ldap'] = {
 
 *Windows:* In addition to the items requested previously, you may also need
 - The inventory variables utilized to communicate to the Windows hosts
-- The output of winrm get winrm/config on the affected Windows hosts
+- The output of `winrm get winrm/config` on the affected Windows hosts
 
 *Networking*
 - Enable debug logging 
