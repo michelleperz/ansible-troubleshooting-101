@@ -45,25 +45,31 @@ LOGGING['loggers']['django_auth_ldap'] = {
 - The output of https://tower.example.com/api/v2/projects/N where N is the ID of the project 
 
 **Playbook Failures**
+
 *General*
 - The relevant playbook
 - The stdout from the job run at a higher verbosity (-vvvv) 
 - The version of Ansible (ansible --version)
 - Output of `ansible-config dump --only-changed`
+
 *Windows:* In addition to the items requested previously, you may also need
 - The inventory variables utilized to communicate to the Windows hosts
 - The output of winrm get winrm/config on the affected Windows hosts
+
 *Networking*
 - Enable debug logging 
 
 **Performance Issues**
 - Sosreport from each cluster node(s)
 - In addition to a sosreport, the following may be useful for troubleshooting the individual components:
+
 *Postgres*
 - If an external database, a tarball of `/var/log/pgsql/{VERSION}/data` or `/var/lib/pgsql/{VERSION}/data/pg_log`
 - DB specifications including IOPS, RAM, CPU
+
 *RabbitMQ*
 - The output of https://tower.example.com/api/v2/ping/ 
+
 *UI Slowness*
 - The api output of any particular page that is slow to load. Example: https://tower.example.com/api/v2/job_events/ 
 - SQL profile data while replicating the slowness:
